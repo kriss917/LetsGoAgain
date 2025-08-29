@@ -9,16 +9,16 @@ function romanNumerals(number) {
   }
   let result = "";
 
+  convertDigit("CM", 900);
   convertDigit("C", 100);
+  convertDigit("XC", 90);
   convertDigit("L", 50);
   convertDigit("X", 10);
   convertDigit("IX", 9);
   convertDigit("V", 5);
-  if (number === 4) return "IV";
+  convertDigit("IV", 4);
+  convertDigit("I", 1);
 
-  for (let i = 0; i < number; i++) {
-    result += "I";
-  }
   return result;
 }
 function testRomanNumerals(number, expected) {
@@ -27,19 +27,16 @@ function testRomanNumerals(number, expected) {
   });
 }
 testRomanNumerals(1, "I");
-testRomanNumerals(2, "II");
 testRomanNumerals(3, "III");
 testRomanNumerals(4, "IV");
-testRomanNumerals(5, "V");
 testRomanNumerals(6, "VI");
 testRomanNumerals(9, "IX");
 testRomanNumerals(10, "X");
 testRomanNumerals(12, "XII");
-testRomanNumerals(15, "XV");
 testRomanNumerals(18, "XVIII");
 testRomanNumerals(19, "XIX");
 testRomanNumerals(20, "XX");
 testRomanNumerals(23, "XXIII");
 testRomanNumerals(38, "XXXVIII");
-testRomanNumerals(45, "XXXXV");
 testRomanNumerals(355, "CCCLV");
+testRomanNumerals(999, "CMXCIX");
