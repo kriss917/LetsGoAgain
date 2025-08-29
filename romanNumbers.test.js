@@ -1,16 +1,19 @@
 import { test, expect } from "vitest";
 
 function romanNumerals(number) {
+  function convertDigit(digit, digitValue) {
+    while (number >= digitValue) {
+      result += digit;
+      number -= digitValue;
+    }
+  }
   let result = "";
-  if (number >= 10) {
-    result += "X";
-    number -= 10;
-  }
-  if (number === 9) return "IX";
-  if (number >= 5) {
-    result += "V";
-    number -= 5;
-  }
+
+  convertDigit("C", 100);
+  convertDigit("L", 50);
+  convertDigit("X", 10);
+  convertDigit("IX", 9);
+  convertDigit("V", 5);
   if (number === 4) return "IV";
 
   for (let i = 0; i < number; i++) {
@@ -33,3 +36,10 @@ testRomanNumerals(9, "IX");
 testRomanNumerals(10, "X");
 testRomanNumerals(12, "XII");
 testRomanNumerals(15, "XV");
+testRomanNumerals(18, "XVIII");
+testRomanNumerals(19, "XIX");
+testRomanNumerals(20, "XX");
+testRomanNumerals(23, "XXIII");
+testRomanNumerals(38, "XXXVIII");
+testRomanNumerals(45, "XXXXV");
+testRomanNumerals(355, "CCCLV");
